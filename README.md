@@ -70,39 +70,39 @@ _**Mountain Review** is a full-stack web application that allows winter sports e
 
 - Home Page
 
-![home-page](assets/home-page)
+![home-page](assets/home-page.png)
 
 - Show Resorts
 
-![resorts-page](assets/resorts-page)
+![resorts-page](assets/resorts-page.png)
 
 - Resort Detail
 
-![resort-detail-page](assets/resort-detail-page)
+![resort-detail-page](assets/resort-detail-page.png)
 
 - Sign In
 
-![sign-in-page](assets/sign-in-page)
+![sign-in-page](assets/sign-in-page.png)
 
 - Sign Up
 
-![sign-up-page](assets/sign-up-page)
+![sign-up-page](assets/sign-up-page.png)
 
 - Create Review
 
-![create-review-page](assets/create-review-page)
+![create-review-page](assets/create-review-page.png)
 
 - Detail with Edit
 
-![detail-with-edit-page](assets/detail-with-edit-page)
+![detail-with-edit-page](assets/detail-with-edit-page.png)
 
 - Edit Review
 
-![edit-review-page](assets/edit-review-page)
+![edit-review-page](assets/edit-review-page.png)
 
 - Search Results
 
-![search-results-page](assets/search-results-page)
+![search-results-page](assets/search-results-page.png)
 
 
 
