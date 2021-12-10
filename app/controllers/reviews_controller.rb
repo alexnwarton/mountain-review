@@ -1,8 +1,12 @@
 class ReviewsController < ApplicationController
+  before_action :set_resort
   before_action :set_review, only: [:show, :update, :destroy]
+  before_action :authorize_request, only: [:create, :update, :destroy]
+  before_action :set_user_review, only: [:update, :destroy]
 
   # GET /reviews
   def index
+
     @reviews = Review.all
 
     render json: @reviews
@@ -16,9 +20,10 @@ class ReviewsController < ApplicationController
   # POST /reviews
   def create
     @review = Review.new(review_params)
+    @review.user = @current_user
 
     if @review.save
-      render json: @review, status: :created, location: @review
+      render json: @review, status: :created
     else
       render json: @review.errors, status: :unprocessable_entity
     end
@@ -40,8 +45,17 @@ class ReviewsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_resort
+      @resort = Resort.find(params[:resort_id])
+    end
+
     def set_review
       @review = Review.find(params[:id])
+    end
+
+    # If the user id matches the review's user id, set the user for the review
+    def set_user_review
+      @review = @current_user.reviews.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

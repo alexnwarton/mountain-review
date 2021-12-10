@@ -1,4 +1,5 @@
 class ResortsController < ApplicationController
+  before_action :is_admin?, only: [:create, :update, :destroy]
   before_action :set_resort, only: [:show, :update, :destroy]
 
   # GET /resorts
@@ -10,32 +11,38 @@ class ResortsController < ApplicationController
 
   # GET /resorts/1
   def show
-    render json: @resort
+    render json: @resort, include: :reviews, status: :ok
   end
 
   # POST /resorts
   def create
-    @resort = Resort.new(resort_params)
+    if @current_user
+      @resort = Resort.new(resort_params)
 
-    if @resort.save
-      render json: @resort, status: :created, location: @resort
-    else
-      render json: @resort.errors, status: :unprocessable_entity
+      if @resort.save
+        render json: @resort, status: :created
+      else
+        render json: @resort.errors, status: :unprocessable_entity
+      end
     end
   end
 
   # PATCH/PUT /resorts/1
   def update
-    if @resort.update(resort_params)
-      render json: @resort
-    else
-      render json: @resort.errors, status: :unprocessable_entity
+    if @current_user
+      if @resort.update(resort_params)
+        render json: @resort
+      else
+        render json: @resort.errors, status: :unprocessable_entity
+      end
     end
   end
 
   # DELETE /resorts/1
   def destroy
-    @resort.destroy
+    if @current_user
+      @resort.destroy
+    end
   end
 
   private
@@ -47,5 +54,13 @@ class ResortsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def resort_params
       params.require(:resort).permit(:name, :city, :state, :country, :description, :img_url, :average_rating)
+    end
+
+    def is_admin?
+      @current_user = User.find(params[:id])
+      if @current_user.is_admin == true
+        @current_user
+      end
+
     end
 end
