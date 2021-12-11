@@ -5,7 +5,8 @@ const SignUp = ({ handleSignUp }) => {
 	const [userInfo, setUserInfo] = useState({
 		username: '',
 		email: '',
-		password: ''
+		password: '',
+		is_admin: false
 	})
 
 	const { username, email, password} = userInfo;
@@ -47,7 +48,7 @@ const SignUp = ({ handleSignUp }) => {
 				onChange={handleChange}
 			/>
 			<br />
-			<input type='submit' value='Sign In'/>
+			<input type='submit' value='Sign Up'/>
 			<p>Already have an account?<Link to='/sign-in'>Sign In</Link></p>
 		</form>
 	)

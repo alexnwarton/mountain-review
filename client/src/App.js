@@ -2,6 +2,7 @@ import { Switch, Route, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { loginUser, registerUser, verifyUser, removeToken } from './services/auth';
 import Layout from './components/Layout';
+import MainContainer from './containers/MainContainer';
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
 
@@ -48,7 +49,9 @@ function App() {
         <Route path='/sign-up'>
           <SignUp handleSignUp={handleSignUp}/>
         </Route>
-        <Route path='/'>Home</Route>
+        <Route path='/'>
+          <MainContainer user={user}/>
+        </Route>
       </Switch>
       </Layout>
     </div>
