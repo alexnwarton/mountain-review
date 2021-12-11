@@ -3,15 +3,15 @@ import '../assets/css/Nav.css';
 
 const Nav = ({ user, handleSignOut }) => {
 	return (
-		<nav>
+		<nav className='main-nav'>
 			<Link className='logo' to='/'>MR</Link>
 			{ user ? 
-				<div>
+				<div className='user-greeting'>
 					<p>Welcome, {user.username}</p>
 					<button onClick={handleSignOut}>Sign Out</button>
 				</div>
 				:
-				<Link to='/sign-in'>Sign In</Link>
+				<Link className='sign-in' to='/sign-in'>Sign In</Link>
 			}
 		</nav>
 	)

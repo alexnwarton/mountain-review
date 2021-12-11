@@ -1,9 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
 
+
+.main-nav {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
 .logo {
 	color: black;
 	text-decoration: none;
 	font-family: 'Reenie Beanie';
 	font-size: 72px;
-	display: flex;
+	justify-self: start;
+}
+
+.user-greeting {
+	color: black;
+	text-decoration: none;
+	font-family: 'Reenie Beanie';
+	font-size: 48px;
+	justify-self: end;
+	align-self: center;
+}
+
+.sign-in {
+	color: black;
+	text-decoration: none;
+	font-size: 36px;
+	justify-self: end;
 }

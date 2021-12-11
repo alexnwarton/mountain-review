@@ -39,7 +39,7 @@ const SignIn = ({ handleSignIn }) => {
 			/>
 			<br />
 			<input type='submit' value='Sign In'/>
-			<p>Don't have an account?<Link to='/register'>Sign Up</Link></p>
+			<p>Don't have an account?<Link to='/sign-up'>Sign Up</Link></p>
 		</form>
 	)
 }

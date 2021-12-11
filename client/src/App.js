@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { loginUser, registerUser, verifyUser, removeToken } from './services/auth';
 import Layout from './components/Layout';
 import SignIn from './screens/SignIn';
+import SignUp from './screens/SignUp';
+
 import './App.css';
 
 function App() {
@@ -39,12 +41,13 @@ function App() {
   return (
     <div className='App'>
     <Layout user={user} handleSignOut={handleSignOut}>
-      <Switch>
-       
+      <Switch> 
         <Route path='/sign-in' exact>
           <SignIn handleSignIn={handleSignIn}/>
         </Route>
-        <Route path='/register'>All Resorts</Route>
+        <Route path='/sign-up'>
+          <SignUp handleSignUp={handleSignUp}/>
+        </Route>
         <Route path='/'>Home</Route>
       </Switch>
       </Layout>
