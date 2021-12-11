@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { loginUser, registerUser, verifyUser, removeToken } from './services/auth';
 import Layout from './components/Layout';
 import MainContainer from './containers/MainContainer';
+import HomePage from './screens/HomePage';
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
 
@@ -50,6 +51,7 @@ function App() {
           <SignUp handleSignUp={handleSignUp}/>
         </Route>
         <Route path='/'>
+          <HomePage />
           <MainContainer user={user}/>
         </Route>
       </Switch>
