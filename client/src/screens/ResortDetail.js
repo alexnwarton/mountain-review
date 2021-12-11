@@ -1,24 +1,17 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getOneResort } from '../services/resorts';
-import { getAllResortReviews } from '../services/reviews';
 
 const ResortDetail = ({ resorts, user }) => {
 	const [resort, setResort] = useState([]);
-	const [reviews, setReviews] = useState([]);
 	const { id } = useParams();
 
 	useEffect(() => {
 		const fetchResort = async () => {
 			const selectResort = await getOneResort(id);
 			setResort(selectResort);
-		}
-		const fetchReviews = async () => {
-			const reviews = await getAllResortReviews(id);
-			setReviews(reviews);
-		}
+		}	
 		fetchResort();
-		fetchReviews();
 	}, [id])
 
 	return (
@@ -30,8 +23,8 @@ const ResortDetail = ({ resorts, user }) => {
 			<img src={resort.img_url} alt={resort.name} />
 			<div className='review'>
 				{ resort.reviews ?
-					resort.reviews.map((review) => (
-						<div>
+					resort.reviews.map((review, key) => (
+						<div key={key}>
 							<h5>{review.title}</h5>
 							<h2>{review.rating}</h2>
 							<p>{review.body}</p>
@@ -40,7 +33,9 @@ const ResortDetail = ({ resorts, user }) => {
 					<p>Loading</p>
 				}
 			</div>
-			<button className='add-review-button'>Add Review</button>
+			<Link className='add-review-button' to='/create-review'> 
+				Add Review
+			</Link>
 		</div>
 	)
 }
