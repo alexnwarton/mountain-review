@@ -9,20 +9,43 @@ function App() {
   const [user, setUser] = useState(null);
   const history = useHistory();
 
-  const handleSignIn = async () => {
+  useEffect(() => {
+    const handleVerify = async () => {
+      const user = await verifyUser();
+      setUser(user);
+    }
+    handleVerify();
+  }, [])
 
-
+  const handleSignIn = async (formData) => {
+    const userInfo = await loginUser(formData);
+    setUser(userInfo);
+    history.push('/');
   }
+
+  const handleSignUp = async (formData) => {
+    const userInfo = await registerUser(formData);
+    setUser(userInfo);
+    history.push('/');
+  }
+
+  const handleSignOut = async () => {
+    setUser(null);
+    localStorage.removeItem('authToken');
+    removeToken();
+  }
+
+
   return (
     <div className='App'>
-    <Layout>
-      <h1>Test</h1>
+    <Layout user={user} handleSignOut={handleSignOut}>
       <Switch>
-        <Route path='/'>Home</Route>
-        <Route path='/sign-in'>
-          <SignIn />
+       
+        <Route path='/sign-in' exact>
+          <SignIn handleSignIn={handleSignIn}/>
         </Route>
         <Route path='/register'>All Resorts</Route>
+        <Route path='/'>Home</Route>
       </Switch>
       </Layout>
     </div>
