@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+
+.logo {
+	color: black;
+	text-decoration: none;
+	font-family: 'Reenie Beanie';
+	font-size: 72px;
+	display: flex;
+}

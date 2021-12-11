@@ -1,0 +1,5 @@
+@font-face {
+    font-family: 'reenie-beanie';
+    src: local('reenie-beanie'),
+         url('./fonts/ReenieBeanie/ReenieBeanie-Regular.ttf') format('truetype');
+}
