@@ -1,6 +1,7 @@
 import ResortCard from '../components/ResortCard';
 
-const SearchResults = ({ resorts }) => {
+const SearchResults = ({ resorts, query, setQuery }) => {
+	
 	return (
 		<div>
 			<h2 className='all-resorts'>Search Results</h2>

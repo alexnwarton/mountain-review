@@ -12,8 +12,8 @@ import SearchResults from '../screens/SearchResults';
 const MainContainer = ({ user }) => {
 	const [resorts, setResorts] = useState([]);
 	const history = useHistory();
-	const [query, setQuery] = useState("");
-	const [foundResorts, setFoundResorts] = useState([]);
+	const [query, setQuery] = useState('');
+	const foundResorts = [];
 
 	useEffect(() => {
 		const fetchResorts = async () => {
@@ -29,39 +29,28 @@ const MainContainer = ({ user }) => {
 		history.push(`/resorts/${resortId}`);
 	}
 
-	const handleSearch = (query) => {
-	
-		
-		const fuse = new Fuse(resorts, {
-			keys: [
-				'name',
-				'city',
-				'state',
-				'country'
-			],
-			includeScore: true,
-		})	
-
-		const searchResults = fuse.search(query)
-		searchResults.map((result) => {
-			if(result.score <= 0.1) {
-				if(foundResorts.includes(result)) {
-					console.log(foundResorts)
-				}
-				foundResorts.push(result);
-				
-				
-			}
-			let test = foundResorts.includes(result.item.id);
-				console.log(test)
-			return foundResorts;
-		})
-	}
-	
-
 	const searchResorts = (ev) => {
 		setQuery(ev)
 	}
+
+	
+	const fuse = new Fuse(resorts, {
+		keys: [
+			'name',
+			'city',
+			'state',
+			'country'
+		],
+		includeScore: true,
+	})	
+
+	const searchResults = fuse.search(query)
+	searchResults.map((result) => {
+		if(result.score <= 0.1) {
+			foundResorts.push(result.item);
+		}
+		return foundResorts;
+	})
 
 	return (
 		<div className='main-container'>
@@ -76,7 +65,7 @@ const MainContainer = ({ user }) => {
 
 			<Switch>
 				<Route path='/search-results'>
-					<Search resorts={foundResorts} handleSearch={handleSearch} query={query}/>
+					<SearchResults resorts={foundResorts} query={query} setQuery={setQuery}/>
 				</Route>
 				<Route path='/resorts' exact>
 					<Resorts resorts={resorts} />
@@ -84,10 +73,6 @@ const MainContainer = ({ user }) => {
 				<Route path='/resorts/:id'>
 					<ResortDetail resorts={resorts} user={user} />
 				</Route>
-				{/*<Route path='resorts/:id/create-review'>
-					<CreateReview user={user} handleCreateReview={handleCreateReview}/>
-				</Route>*/}
-				
 			</Switch>
 		</div>
 	)
