@@ -36,7 +36,7 @@ const ResortDetail = ({ user }) => {
 
 	const handleDeleteReview = async (resortId, reviewId) => {
 		await deleteReview(resortId, reviewId);
-		history.push(`/resorts/${resortId}`);
+		history.push(`/resorts`);
 	}
 
 	return (

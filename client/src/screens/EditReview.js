@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getOneResortReview } from '../services/reviews';
+//import { getOneResortReview } from '../services/reviews';
 
 const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) => {
 	const [review, setReview] = useState({
@@ -12,14 +12,15 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 	})
 	let { id } = useParams();
 
-	const { title, rating, body, user_id, resort_id } = review;
+	const { title, rating, body} = review;
 
 	useEffect(() => {
 		const fetchReview = () => {
-			let selected = resort.reviews.find((review) => review.id == Number(id))
+			let selected = resort.reviews.find((review) => review.id === Number(id));
+			setReview(selected);
 		}
 		fetchReview()
-	}, [id])
+	}, [resort.reviews, id])
 
 
 	const handleChange = (ev) => {
@@ -36,50 +37,52 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 	
 
 	return (
-		<form onSubmit={(ev) => {
-			ev.preventDefault();
-			handleUpdateReview(resort.id, id)}}
-		>
-			<label>title:</label>
-			<input 
-				type='text'
-				name='title'
-				value={title}
-				onChange={handleChange}
-			/>
-			<br />
-			<label>rating:</label>
-			<input 
-				type='textarea'
-				name='rating'
-				value={rating}
-				onChange={handleChange}
-			/>
-			<br />
-			<label>body:</label>
-			<input 
-				type='textarea'
-				name='body'
-				value={body}
-				onChange={handleChange}
-			/>
-			<input 
-				type='text'
-				name='user_id'
-				value={user.id}
-				readOnly='readonly'
-				onChange={handleChange}
-			/>
-			<input 
-				type='text'
-				name='resort_id'
-				value={resort.id}
-				readOnly='readonly'
-				onChange={handleChange}
-			/>
-			<button>Submit</button>
+		<div className='edit-container'>
+			<form onSubmit={(ev) => {
+				ev.preventDefault();
+				handleUpdateReview(resort.id, id)}}
+			>
+				<label>title:</label>
+				<input 
+					type='text'
+					name='title'
+					value={title}
+					onChange={handleChange}
+				/>
+				<br />
+				<label>rating:</label>
+				<input 
+					type='textarea'
+					name='rating'
+					value={rating}
+					onChange={handleChange}
+				/>
+				<br />
+				<label>body:</label>
+				<input 
+					type='textarea'
+					name='body'
+					value={body}
+					onChange={handleChange}
+				/>
+				<input 
+					type='text'
+					name='user_id'
+					value={user.id}
+					readOnly='readonly'
+					onChange={handleChange}
+				/>
+				<input 
+					type='text'
+					name='resort_id'
+					value={resort.id}
+					readOnly='readonly'
+					onChange={handleChange}
+				/>
+				<button>Submit</button>	
+			</form>
 			<button onClick={handleDelete}>Delete Review</button>
-		</form>
+		</div>
 	)
 }
 
