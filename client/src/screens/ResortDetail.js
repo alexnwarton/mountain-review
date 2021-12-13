@@ -21,7 +21,7 @@ const ResortDetail = ({ user }) => {
 
 	const handleCreateReview = async (resortId, formData) => {
 		const newReview = await createReview(resortId, formData);
-		setResort((prevState) => [...prevState, newReview]);
+		setResort((prevState) => [prevState, newReview]);
 		history.push(`/resorts/${resortId}`);
 	}
 
@@ -37,10 +37,10 @@ const ResortDetail = ({ user }) => {
 	}
 
 	return (
-		<div>
+		<div className='resort-detail'>
 			<h3>{resort.name}</h3>
 			<h4>{resort.city}, {resort.state}, {resort.country}</h4>
-			<h1>PUT STAR RATINGS HERE!!!!</h1>
+			<h1 className='stars'>PUT STAR RATINGS HERE!!!!</h1>
 			<p>{resort.description}</p>
 			<img src={resort.img_url} alt={resort.name} />
 			<div className='review'>

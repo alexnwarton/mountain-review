@@ -52,14 +52,14 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 				type='text'
 				name='user_id'
 				value={user.id}
-				readOnly='readonly'
+
 				onChange={handleChange}
 			/>
 			<input 
 				type='text'
 				name='resort_id'
 				value={resort}
-				readOnly='readonly'
+
 				onChange={handleChange}
 			/>
 			<button>Submit</button>

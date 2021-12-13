@@ -1,3 +1,11 @@
 img {
 	width: 50%;
 }
+
+.resort-detail {
+	background: white;
+}
+
+.stars {
+	color: orange;
+}
