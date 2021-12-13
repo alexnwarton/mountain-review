@@ -20,7 +20,7 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 			setReview(selected);
 		}
 		fetchReview()
-	}, [resort.reviews, id])
+	}, [id])
 
 
 	const handleChange = (ev) => {
@@ -34,13 +34,12 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 	const handleDelete = (ev) => {
 		handleDeleteReview(resort.id, review.id)
 	}
-	
 
 	return (
 		<div className='edit-container'>
 			<form onSubmit={(ev) => {
 				ev.preventDefault();
-				handleUpdateReview(resort.id, id)}}
+				handleUpdateReview(resort.id, id, review)}}
 			>
 				<label>title:</label>
 				<input 
@@ -70,14 +69,12 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 					name='user_id'
 					value={user.id}
 					readOnly='readonly'
-					onChange={handleChange}
 				/>
 				<input 
 					type='text'
 					name='resort_id'
 					value={resort.id}
 					readOnly='readonly'
-					onChange={handleChange}
 				/>
 				<button>Submit</button>	
 			</form>

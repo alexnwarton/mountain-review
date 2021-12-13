@@ -31,13 +31,11 @@ class ReviewsController < ApplicationController
 
   # PATCH/PUT /reviews/1
   def update
-      puts @review
-      if @review.update(review_params)
-        render json: @review
-      else
-        render json: @review.errors, status: :unprocessable_entity
-      end
-    
+    if @review.update(review_params)
+      render json: @review
+    else
+      render json: @review.errors, status: :unprocessable_entity
+    end   
   end
 
   # DELETE /reviews/1
@@ -62,6 +60,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.require(:review).permit(:title, :body, :rating, :tags, :user_id, :resort_id)
+      params.require(:review).permit(:user_id, :title, :body, :rating, :resort_id, :id, :tags)
     end
 end
