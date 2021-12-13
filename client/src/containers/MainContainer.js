@@ -1,9 +1,9 @@
 import { Switch, Route, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getResorts, getOneResort } from '../services/resorts';
-import { createReview } from '../services/reviews';
+import { createReview, getResorts, getOneResort } from '../services/resorts';
+//import { createReview } from '../services/reviews';
 import Search from '../components/Search';
-import CreateReview from '../screens/CreateReview';
+// import CreateReview from '../screens/CreateReview';
 import Resorts from '../screens/Resorts';
 import ResortDetail from '../screens/ResortDetail';
 import SearchResults from '../screens/SearchResults';
@@ -21,7 +21,7 @@ const MainContainer = ({ user }) => {
 	}, [])
 
 	const handleCreateReview = async (formData, resortId) => {
-		const newReview = await createReview(formData);
+		const newReview = await createReview(resortId, formData);
 		setResorts((prevState) => [...prevState, newReview]);
 		history.push(`/resorts/${resortId}`);
 	}
@@ -43,9 +43,9 @@ const MainContainer = ({ user }) => {
 				<Route path='/resorts/:id'>
 					<ResortDetail resorts={resorts} user={user} />
 				</Route>
-				<Route path='/create-review' exact>
+				{/*<Route path='resorts/:id/create-review'>
 					<CreateReview user={user} handleCreateReview={handleCreateReview}/>
-				</Route>
+				</Route>*/}
 				
 			</Switch>
 		</div>
