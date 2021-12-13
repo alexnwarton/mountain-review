@@ -19,15 +19,18 @@ const ResortDetail = ({ user }) => {
 		fetchResort();
 	}, [id])
 
+	// right now this redirects to main resorts page.
+	// try to have it redirect to the resort detail page while still loading all the info.
 	const handleCreateReview = async (resortId, formData) => {
 		const newReview = await createReview(resortId, formData);
 		setResort((prevState) => [prevState, newReview]);
-		history.push(`/resorts/${resortId}`);
+		console.log(resortId)
+		history.push(`/resorts`);
 	}
 
 	const handleUpdateReview = async (resortId, reviewId, formData) => {
 		const newReview = await updateReview(resortId, reviewId, formData);
-		setResort((prevState) => [...prevState, newReview]);
+		setResort((prevState) => [prevState, newReview]);
 		history.push(`/resorts/${resortId}`);
 	}
 
