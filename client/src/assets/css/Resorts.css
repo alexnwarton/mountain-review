@@ -1,0 +1,21 @@
+.resort-card {
+	width: 50%;
+}
+
+.resort-name {
+	top: 50%;
+    left: 50%;
+    transform: translate(0, -550%);
+}
+
+.resort-image {
+	opacity: 25%;
+}
+
+.resort-link {
+	text-decoration: none;
+	color: white;
+}
+body {
+	background: #232F5B;
+}

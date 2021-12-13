@@ -4,6 +4,7 @@ import { createReview, getOneResort } from '../services/resorts';
 import { updateReview, deleteReview } from '../services/reviews';
 import CreateReview from '../screens/CreateReview';
 import EditReview from '../screens/EditReview';
+import '../assets/css/ResortDetail.css';
 
 const ResortDetail = ({ user }) => {
 	const [resort, setResort] = useState([]);
@@ -25,7 +26,7 @@ const ResortDetail = ({ user }) => {
 	}
 
 	const handleUpdateReview = async (resortId, reviewId, formData) => {
-		const newReview = await createReview(resortId, reviewId, formData);
+		const newReview = await updateReview(resortId, reviewId, formData);
 		setResort((prevState) => [...prevState, newReview]);
 		history.push(`/resorts/${resortId}`);
 	}
@@ -67,9 +68,13 @@ const ResortDetail = ({ user }) => {
 					<EditReview user={user} handleUpdateReview={handleUpdateReview} handleDeleteReview={handleDeleteReview} resort={id}/>
 				</Route>
 			</Switch>
-			<Link className='add-review-button' to={`/resorts/${id}/create-review`}> 
-				Add Review
-			</Link>
+			{	user ? 
+				<Link className='add-review-button' to={`/resorts/${id}/create-review`}> 
+					Add Review
+				</Link>
+				:
+				<Link to='/sign-in'>Sign In</Link>
+			}
 			
 		</div>
 	)

@@ -1,4 +1,5 @@
 import ResortCard from '../components/ResortCard';
+import '../assets/css/Resorts.css';
 
 const Resorts = ({ resorts }) => {
 	return (

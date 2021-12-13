@@ -1,17 +1,14 @@
 import Fuse from 'fuse.js';
-import { Link, Switch, Route, useHistory } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { createReview, getResorts, getOneResort } from '../services/resorts';
-//import { createReview } from '../services/reviews';
-import Search from '../components/Search';
-// import CreateReview from '../screens/CreateReview';
+import {  getResorts } from '../services/resorts';
 import Resorts from '../screens/Resorts';
 import ResortDetail from '../screens/ResortDetail';
 import SearchResults from '../screens/SearchResults';
+import HomePage from '../screens/HomePage';
 
 const MainContainer = ({ user }) => {
 	const [resorts, setResorts] = useState([]);
-	const history = useHistory();
 	const [query, setQuery] = useState('');
 	const foundResorts = [];
 
@@ -23,11 +20,6 @@ const MainContainer = ({ user }) => {
 		fetchResorts();
 	}, [])
 
-	const handleCreateReview = async (formData, resortId) => {
-		const newReview = await createReview(resortId, formData);
-		setResorts((prevState) => [...prevState, newReview]);
-		history.push(`/resorts/${resortId}`);
-	}
 
 	const searchResorts = (ev) => {
 		setQuery(ev)
@@ -54,16 +46,18 @@ const MainContainer = ({ user }) => {
 
 	return (
 		<div className='main-container'>
-		
-			<input 
-				type='text'
-				name='search'
-				value={query}
-				onChange={(ev) => searchResorts(ev.target.value)}
-			/>
-			<Link to='/search-results'>Search</Link>
-
 			<Switch>
+				<Route path='/' exact>
+          			<HomePage />
+          			<input 
+						type='text'
+						name='search'
+						value={query}
+						onChange={(ev) => searchResorts(ev.target.value)}
+					/>
+					<Link to='/search-results'>Search</Link>
+          		</Route>
+
 				<Route path='/search-results'>
 					<SearchResults resorts={foundResorts} query={query} setQuery={setQuery}/>
 				</Route>

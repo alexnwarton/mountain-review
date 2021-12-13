@@ -9,16 +9,14 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 		resort_id: resort
 	})
 
-	const { title, rating, body, user_id, resort_id } = newReview;
+	const { title, rating, body } = newReview;
 
 	const handleChange = (ev) => {
 		const { name, value } = ev.target;
-		for(name in newReview) {
-			setNewReview((prevState) => ({
+		setNewReview((prevState) => ({
 			...prevState,
 			[name]: value
 		}))
-		}
 	}
 	
 
