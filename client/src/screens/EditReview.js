@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getOneResortReview } from '../services/reviews';
 
@@ -7,19 +8,18 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 		rating: '',
 		body: '',
 		user_id: user.id,
-		resort_id: resort
+		resort_id: resort.id
 	})
+	let { id } = useParams();
 
 	const { title, rating, body, user_id, resort_id } = review;
 
 	useEffect(() => {
-		const fetchReview = async () => {
-			let selected = await getOneResortReview(resort, review.resort_id)
-			console.log(selected);
+		const fetchReview = () => {
+			let selected = resort.reviews.find((review) => review.id == Number(id))
 		}
-		
-		//console.log(review)
-	}, [])
+		fetchReview()
+	}, [id])
 
 
 	const handleChange = (ev) => {
@@ -31,14 +31,14 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 	}
 
 	const handleDelete = (ev) => {
-		handleDeleteReview(resort, review.id)
+		handleDeleteReview(resort.id, review.id)
 	}
 	
 
 	return (
 		<form onSubmit={(ev) => {
 			ev.preventDefault();
-			handleUpdateReview(resort, review)}}
+			handleUpdateReview(resort.id, id)}}
 		>
 			<label>title:</label>
 			<input 
@@ -73,7 +73,7 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 			<input 
 				type='text'
 				name='resort_id'
-				value={resort}
+				value={resort.id}
 				readOnly='readonly'
 				onChange={handleChange}
 			/>

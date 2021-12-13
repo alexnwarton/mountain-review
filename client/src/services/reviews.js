@@ -16,7 +16,7 @@ export const getOneResortReview = async (resortId, reviewId) => {
 }
 
 export const updateReview = async (resortId, reviewId, reviewData) => {
-	const resp = await api.post(`/resorts/${resortId}/reviews/${reviewId}`, { review: reviewData });
+	const resp = await api.put(`/resorts/${resortId}/reviews/${reviewId}`, { review: reviewData });
 	return resp.data;
 }
 

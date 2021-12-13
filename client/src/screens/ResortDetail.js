@@ -29,9 +29,9 @@ const ResortDetail = ({ user }) => {
 	}
 
 	const handleUpdateReview = async (resortId, reviewId, formData) => {
-		const newReview = await updateReview(resortId, reviewId, formData);
-		setResort((prevState) => [prevState, newReview]);
-		history.push(`/resorts/${resortId}`);
+		const updatedReview = await updateReview(resortId, reviewId, formData);
+		setResort((prevState) => [prevState, updatedReview]);
+		history.push(`/resorts`);
 	}
 
 	const handleDeleteReview = async (resortId, reviewId) => {
@@ -54,7 +54,7 @@ const ResortDetail = ({ user }) => {
 							<h2>{review.rating}</h2>
 							<p>{review.body}</p>
 							{ review.user_id === user.id ?
-								<Link className='edit-review-button' to={`/resorts/${id}/edit-review`}> 
+								<Link className='edit-review-button' to={`/resorts/${id}/edit-review/${review.id}`}> 
 									Edit Review
 								</Link> : ""
 							}
@@ -67,8 +67,8 @@ const ResortDetail = ({ user }) => {
 				<Route path={`/resorts/${id}/create-review`}>
 					<CreateReview user={user} handleCreateReview={handleCreateReview} resort={id}/>
 				</Route>
-				<Route path={`/resorts/${id}/edit-review`}>
-					<EditReview user={user} handleUpdateReview={handleUpdateReview} handleDeleteReview={handleDeleteReview} resort={id}/>
+				<Route path={`/resorts/${id}/edit-review/:id`}>
+					<EditReview user={user} resort={resort} handleUpdateReview={handleUpdateReview} handleDeleteReview={handleDeleteReview} resortId={id}/>
 				</Route>
 			</Switch>
 			{	user ? 
