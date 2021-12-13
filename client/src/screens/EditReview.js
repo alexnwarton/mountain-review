@@ -12,10 +12,16 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 
 	const { title, rating, body, user_id, resort_id } = review;
 
-	// useEffect(() => {
-	// 	getOneResortReview(resort, id)
-	// })
-	console.log(review)
+	useEffect(() => {
+		const fetchReview = async () => {
+			let selected = await getOneResortReview(resort, review.resort_id)
+			setReview = selected;
+		}
+		
+		console.log(review)
+	}, [])
+	// console.log(review.resort_id)
+	// console.log(review)
 
 	const handleChange = (ev) => {
 		const { name, value } = ev.target;
