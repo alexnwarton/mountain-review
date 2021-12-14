@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import '../assets/css/EditReview.css';
 
 const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) => {
 	const [review, setReview] = useState({
@@ -36,7 +37,7 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 
 	return (
 		<div className='edit-container'>
-			<form onSubmit={(ev) => {
+			<form className='edit-form' onSubmit={(ev) => {
 				ev.preventDefault();
 				handleUpdateReview(resort.id, id, review)}}
 			>
@@ -57,27 +58,30 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 				/>
 				<br />
 				<label>body:</label>
-				<input 
+				<textarea 
 					type='textarea'
 					name='body'
 					value={body}
 					onChange={handleChange}
 				/>
 				<input 
-					type='text'
+					type='hidden'
 					name='user_id'
 					value={user.id}
 					readOnly='readonly'
 				/>
 				<input 
-					type='text'
+					type='hidden'
 					name='resort_id'
 					value={resort.id}
 					readOnly='readonly'
 				/>
-				<button>Submit</button>	
+				<div className='button-container'>
+					<button className='edit-button'>Update Review</button>
+					<button className='delete-button' onClick={handleDelete}>Delete Review</button>
+				</div>
 			</form>
-			<button onClick={handleDelete}>Delete Review</button>
+			
 		</div>
 	)
 }
