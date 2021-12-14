@@ -1,3 +1,4 @@
+import Rating from '@mui/material/Rating';
 import { Switch, Route, Link, useParams, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { createReview, getOneResort } from '../services/resorts';
@@ -8,6 +9,7 @@ import '../assets/css/ResortDetail.css';
 
 const ResortDetail = ({ user }) => {
 	const [resort, setResort] = useState([]);
+	const [value, setValue] = useState(0);
 	const { id } = useParams();
 	const history = useHistory();
 
@@ -15,6 +17,7 @@ const ResortDetail = ({ user }) => {
 		const fetchResort = async () => {
 			const selectResort = await getOneResort(id);
 			setResort(selectResort);
+			averageRating(selectResort)
 		}	
 		fetchResort();
 	}, [id])
@@ -39,11 +42,25 @@ const ResortDetail = ({ user }) => {
 		history.push(`/resorts`);
 	}
 
+	const averageRating = (resort) => {
+		let sum = 0;
+		let counter = 0;
+		resort.reviews.forEach((review) => {
+			sum += review.rating
+			counter++;
+		})
+		setValue(sum / counter);
+	}
+
 	return (
 		<div className='resort-detail'>
 			<h3>{resort.name}</h3>
 			<h4>{resort.city}, {resort.state}, {resort.country}</h4>
-			<h1 className='stars'>PUT STAR RATINGS HERE!!!!</h1>
+			<Rating 
+				name='average-rating'
+				value={value}
+				readOnly
+			/>
 			<p>{resort.description}</p>
 			<img src={resort.img_url} alt={resort.name} />
 			<div className='review'>
@@ -51,9 +68,14 @@ const ResortDetail = ({ user }) => {
 					resort.reviews.map((review, key) => (
 						<div key={key}>
 							<h5>{review.title}</h5>
+							<Rating
+								name='rating'
+						        value={review.rating}
+						        readOnly
+							/>
 							<h2>{review.rating}</h2>
 							<p>{review.body}</p>
-							{ review.user_id === user.id ?
+							{ user && review.user_id === user.id ?
 								<Link className='edit-review-button' to={`/resorts/${id}/edit-review/${review.id}`}> 
 									Edit Review
 								</Link> : ""
