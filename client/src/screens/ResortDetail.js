@@ -56,8 +56,8 @@ const ResortDetail = ({ user }) => {
 		<div className='resort-detail'>
 			<div className='resort-info'>
 				<div className='resort-text'>
-					<h3>{resort.name}</h3>
-					<h4>{resort.city}, {resort.state}, {resort.country}</h4>
+					<h3 className='resort-detail-name'>{resort.name}</h3>
+					<h4 className='resort-detail-location'>{resort.city}, {resort.state}, {resort.country}</h4>
 					<Rating 
 						name='average-rating'
 						value={value}
@@ -78,13 +78,13 @@ const ResortDetail = ({ user }) => {
 				{ resort.reviews ?
 					resort.reviews.map((review, key) => (
 						<div key={key}>
-							<h5>{review.title}</h5>
+							<h5 className='review-title'>{review.title}</h5>
 							<Rating
 								name='rating'
 						        value={review.rating}
 						        readOnly
 							/>
-							<p>{review.body}</p>
+							<p className='review-body'>{review.body}</p>
 							{ user && review.user_id === user.id ?
 								<Link className='edit-review-button' to={`/resorts/${id}/edit-review/${review.id}`}> 
 									Edit Review

@@ -1,5 +1,6 @@
 import Rating from '@mui/material/Rating';
 import { useState } from 'react';
+import '../assets/css/CreateReview.css';
 
 const CreateReview = ({ user, resort, handleCreateReview }) => {
 	const [starRating, setRating] = useState(4)
@@ -23,11 +24,11 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 	
 
 	return (
-		<form onSubmit={(ev) => {
+		<form className='create-review' onSubmit={(ev) => {
 			ev.preventDefault();
 			handleCreateReview(resort, newReview)}}
 		>
-			<label>title:</label>
+			<label className='create-label'>title</label>
 			<input 
 				type='text'
 				name='title'
@@ -35,7 +36,7 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 				onChange={handleChange}
 			/>
 			<br />
-			<label>rating:</label>
+			<label className='create-label'>rating</label>
 			<Rating 
 				name='average-rating'
 				value={rating}
@@ -44,9 +45,11 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 				}}
 			/>
 			<br />
-			<label>body:</label>
-			<input 
+			<label className='create-label'>body</label>
+			<textarea 
 				type='textarea'
+				rows='15'
+				cols='10'
 				name='body'
 				value={body}
 				onChange={handleChange}
@@ -63,7 +66,7 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 				value={resort}
 				onChange={handleChange}
 			/>
-			<button>Submit</button>
+			<button className='create-review-button'>Submit Review</button>
 		</form>
 	)
 }
