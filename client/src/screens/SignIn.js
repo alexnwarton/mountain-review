@@ -1,5 +1,7 @@
+import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import '../assets/css/SignIn.css';
 
 const SignIn = ({ handleSignIn }) => {
 	const [userInfo, setUserInfo] = useState({
@@ -18,29 +20,37 @@ const SignIn = ({ handleSignIn }) => {
 	}
 
 	return (
-		<form onSubmit={(ev) => {
-			ev.preventDefault();
-			handleSignIn(userInfo);
+		<Box sx={{
+			width:550,
+			height:600,
+			backgroundColor:'white',
+			margin: 'auto'
 		}}>
-			<label>username:</label>
-			<input 
-				type='text'
-				name='username'
-				value={username}
-				onChange={handleChange}
-			/>
-			<br />
-			<label>password:</label>
-			<input 
-				type='password'
-				name='password'
-				value={password}
-				onChange={handleChange}
-			/>
-			<br />
-			<input type='submit' value='Sign In'/>
-			<p>Don't have an account?<Link to='/sign-up'>Sign Up</Link></p>
-		</form>
+			<h2 className='sign-in-header'>Sign In</h2>
+			<form className='sign-in-form'onSubmit={(ev) => {
+				ev.preventDefault();
+				handleSignIn(userInfo);
+			}}>
+				<label className='hidden-label'>username:</label>
+				<input 
+					type='text'
+					name='username'
+					placeholder='username'
+					value={username}
+					onChange={handleChange}
+				/>
+				<label className='hidden-label'>password:</label>
+				<input 
+					type='password'
+					name='password'
+					placeholder='password'
+					value={password}
+					onChange={handleChange}
+				/>
+				<input className='sign-in-button' type='submit' value='Sign In'/>
+				<p className='sign-up-blurb'>Don't have an account? <Link className='sign-up-link' to='/sign-up'>Sign Up</Link></p>
+			</form>
+		</Box>
 	)
 }
 

@@ -2,19 +2,19 @@
 	background: #232F5B;;
 }
 
-.sign-in-form {
+.sign-up-form {
 	display: flex;
 	flex-direction: column;
 	margin: auto 0;
 	align-items: center;
 }
 
-.sign-in-header {
+.sign-up-header {
 	padding-top: 10%;
 	color: darkgray;
 }
 
-.sign-in-button {
+.sign-up-button {
 	color: white;
 	background: #232F5B;
 	opacity: 100%;
@@ -35,10 +35,10 @@ input {
 	color: transparent;
 }
 
-.sign-up-blurb {
+.sign-in-blurb {
 	color: darkgray;
 }
 
-.sign-up-link {
+.sign-in-link {
 	color: darkgray;
 }

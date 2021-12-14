@@ -49,7 +49,7 @@ const MainContainer = ({ user }) => {
 		<div className='main-container'>
 			<Switch>
 				<Route path='/' exact>
-          			{/*<HomePage />*/}
+          			<HomePage />
           			<input 
           				className='search-bar'
 						type='text'

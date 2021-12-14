@@ -1,5 +1,7 @@
+import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import '../assets/css/SignUp.css';
 
 const SignUp = ({ handleSignUp }) => {
 	const [userInfo, setUserInfo] = useState({
@@ -20,37 +22,45 @@ const SignUp = ({ handleSignUp }) => {
 	}
 
 	return (
-		<form onSubmit={(ev) => {
-			ev.preventDefault();
-			handleSignUp(userInfo);
+		<Box sx={{
+			width:550,
+			height:600,
+			backgroundColor:'white',
+			margin: 'auto'
 		}}>
-			<label>username:</label>
-			<input 
-				type='text'
-				name='username'
-				value={username}
-				onChange={handleChange}
-			/>
-			<br />
-			<label>email:</label>
-			<input 
-				type='text'
-				name='email'
-				value={email}
-				onChange={handleChange}
-			/>
-			<br />
-			<label>password:</label>
-			<input 
-				type='password'
-				name='password'
-				value={password}
-				onChange={handleChange}
-			/>
-			<br />
-			<input type='submit' value='Sign Up'/>
-			<p>Already have an account?<Link to='/sign-in'>Sign In</Link></p>
-		</form>
+			<h2 className='sign-up-header'>Sign Up</h2>
+			<form className='sign-up-form' onSubmit={(ev) => {
+				ev.preventDefault();
+				handleSignUp(userInfo);
+			}}>
+				<label className='hidden-label'>username:</label>
+				<input 
+					type='text'
+					name='username'
+					placeholder='username'
+					value={username}
+					onChange={handleChange}
+				/>
+				<label className='hidden-label'>email:</label>
+				<input 
+					type='text'
+					name='email'
+					placeholder='email'
+					value={email}
+					onChange={handleChange}
+				/>
+				<label className='hidden-label'>password:</label>
+				<input 
+					type='password'
+					name='password'
+					placeholder='password'
+					value={password}
+					onChange={handleChange}
+				/>
+				<input className='sign-up-button' type='submit' value='Sign Up'/>
+				<p className='sign-in-blurb'>Already have an account? <Link className='sign-in-link' to='/sign-in'>Sign In</Link></p>
+			</form>
+		</Box>
 	)
 }
 
