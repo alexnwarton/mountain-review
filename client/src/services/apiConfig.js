@@ -1,9 +1,12 @@
 import axios from 'axios';
 
-const apiUrl = 'http://localhost:3000';
+const baseUrl =
+	process.env.NODE_ENV === 'production'
+	? 'https://mountain-review.herokuapp.com/'
+	: 'http://localhost:3000'
 
 const api = axios.create({
-	baseURL: apiUrl,
+	baseURL: baseUrl,
 })
 
 export default api;

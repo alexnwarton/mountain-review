@@ -18,12 +18,12 @@
 .sign-up-button {
 	color: white;
 	background: #232F5B;
-	opacity: 100%;
+	opacity: 1;
 	margin-top: 5%;
 }
 
 input {
-	opacity: 50%;
+	opacity: 0.5;
 	background: lightgray;
 	width: 50%;
 	height: 3rem;
