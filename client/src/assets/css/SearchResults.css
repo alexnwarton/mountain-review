@@ -45,3 +45,13 @@
 	font-weight: bold;
 	margin-right: 5%;
 }
+
+.no-results {
+	color: white;
+	font-size: 35px;
+}
+
+.home-page-link {
+	color: white;
+	text-decoration: none;
+}

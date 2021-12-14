@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState/*, useEffect*/ } from 'react';
 
 const SearchCard = ({ resort, averageRating }) => {
 	const [value, setValue] = useState(3);
