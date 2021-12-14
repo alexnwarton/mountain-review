@@ -3,7 +3,7 @@ import { useState } from 'react';
 import '../assets/css/CreateReview.css';
 
 const CreateReview = ({ user, resort, handleCreateReview }) => {
-	const [starRating, setRating] = useState(4)
+	const [starRating, setRating] = useState('')
 	const [newReview, setNewReview] = useState({
 		title: '',
 		rating: starRating,
@@ -22,10 +22,10 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 		}))
 	}
 	
-
 	return (
 		<form className='create-review' onSubmit={(ev) => {
 			ev.preventDefault();
+			setRating(starRating)
 			handleCreateReview(resort, newReview)}}
 		>
 			<label className='create-label'>title</label>
@@ -39,9 +39,11 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 			<label className='create-label'>rating</label>
 			<Rating 
 				name='average-rating'
-				value={rating}
+				value={starRating}
 				onChange={(ev, newValue) => {
-					setRating(newValue)
+					setNewReview((prevState) => ({
+						...prevState,
+					 rating: newValue }))
 				}}
 			/>
 			<br />

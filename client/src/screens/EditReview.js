@@ -1,11 +1,12 @@
+import Rating from '@mui/material/Rating';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import '../assets/css/EditReview.css';
 
-const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) => {
+const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview, starRating, setValue }) => {
 	const [review, setReview] = useState({
 		title: '',
-		rating: '',
+		rating: starRating,
 		body: '',
 		user_id: user.id,
 		resort_id: resort.id
@@ -39,9 +40,10 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 		<div className='edit-container'>
 			<form className='edit-form' onSubmit={(ev) => {
 				ev.preventDefault();
+				setValue(starRating)
 				handleUpdateReview(resort.id, id, review)}}
 			>
-				<label>title:</label>
+				<label className='create-label'>title</label>
 				<input 
 					type='text'
 					name='title'
@@ -49,15 +51,16 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) =>
 					onChange={handleChange}
 				/>
 				<br />
-				<label>rating:</label>
-				<input 
-					type='textarea'
-					name='rating'
+				<label className='create-label'>rating</label>
+				<Rating 
+					name='average-rating'
 					value={rating}
-					onChange={handleChange}
+					onChange={(ev, newValue) => {
+						setReview({ rating: newValue })
+					}}
 				/>
 				<br />
-				<label>body:</label>
+				<label className='create-label'>body</label>
 				<textarea 
 					type='textarea'
 					name='body'

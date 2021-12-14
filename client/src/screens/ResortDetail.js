@@ -97,10 +97,10 @@ const ResortDetail = ({ user }) => {
 			</div>
 			<Switch>
 				<Route path={`/resorts/${id}/create-review`}>
-					<CreateReview user={user} handleCreateReview={handleCreateReview} resort={id}/>
+					<CreateReview user={user} handleCreateReview={handleCreateReview} resort={id} rating={value} setValue={setValue}/>
 				</Route>
 				<Route path={`/resorts/${id}/edit-review/:id`}>
-					<EditReview user={user} resort={resort} handleUpdateReview={handleUpdateReview} handleDeleteReview={handleDeleteReview} resortId={id}/>
+					<EditReview user={user} resort={resort} handleUpdateReview={handleUpdateReview} handleDeleteReview={handleDeleteReview} resortId={id} starRating={value} setValue={setValue}/>
 				</Route>
 			</Switch>
 		</div>

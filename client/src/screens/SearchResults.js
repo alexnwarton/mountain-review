@@ -17,7 +17,7 @@ const SearchResults = ({ resorts, query, setQuery }) => {
 			<div>
 				<img className='no-results-image' src='https://t4.ftcdn.net/jpg/01/31/50/31/360_F_131503150_0GrJ1mLWKoAfImUrw38289vTXomCPOvF.jpg'/>
 				<h3 className='no-results'>No results found</h3>
-				<Link className='home-page-link' to='/'>Return Home</Link>
+				<Link className='home-page-link' to='/' onClick={() => setQuery('')}>Return Home</Link>
 			</div>
 			} 
 		</div>
