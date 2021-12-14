@@ -6,13 +6,13 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 	const [starRating, setRating] = useState('')
 	const [newReview, setNewReview] = useState({
 		title: '',
-		rating: starRating,
+		rating: parseInt(starRating),
 		body: '',
 		user_id: user.id,
 		resort_id: resort
 	})
 
-	const { title, rating, body } = newReview;
+	const { title, body } = newReview;
 
 	const handleChange = (ev) => {
 		const { name, value } = ev.target;

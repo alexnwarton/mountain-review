@@ -80,11 +80,12 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview, star
 					readOnly='readonly'
 				/>
 				<div className='button-container'>
-					<button className='edit-button'>Update Review</button>
-					<button className='delete-button' onClick={handleDelete}>Delete Review</button>
+					<button className='edit-button'>Update Review</button>	
 				</div>
 			</form>
-			
+			<div className='delete-button-container'>
+				<button className='delete-button' onClick={handleDelete}>Delete Review</button>
+			</div>
 		</div>
 	)
 }

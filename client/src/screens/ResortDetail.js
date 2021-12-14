@@ -27,7 +27,6 @@ const ResortDetail = ({ user }) => {
 	const handleCreateReview = async (resortId, formData) => {
 		const newReview = await createReview(resortId, formData);
 		setResort((prevState) => [prevState, newReview]);
-		console.log(resortId)
 		history.push(`/resorts`);
 	}
 
