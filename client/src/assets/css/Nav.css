@@ -44,7 +44,7 @@
 }
 
 .sign-in:hover {
-	color: lightgray;
+	color: #8D8D8D;
 	text-decoration: none;
 	font-size: 36px;
 	justify-self: end;
@@ -64,6 +64,6 @@
 	background: transparent;
 	border-style: solid;
 	border-color: transparent;
-	color: lightgray;
+	color: #8D8D8D;
 	font-size: 30px;
 }

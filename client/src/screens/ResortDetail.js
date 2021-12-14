@@ -54,15 +54,26 @@ const ResortDetail = ({ user }) => {
 
 	return (
 		<div className='resort-detail'>
-			<h3>{resort.name}</h3>
-			<h4>{resort.city}, {resort.state}, {resort.country}</h4>
-			<Rating 
-				name='average-rating'
-				value={value}
-				readOnly
-			/>
-			<p>{resort.description}</p>
-			<img src={resort.img_url} alt={resort.name} />
+			<div className='resort-info'>
+				<div className='resort-text'>
+					<h3>{resort.name}</h3>
+					<h4>{resort.city}, {resort.state}, {resort.country}</h4>
+					<Rating 
+						name='average-rating'
+						value={value}
+						readOnly
+					/>
+					<p>{resort.description}</p>
+				</div>
+				<img className='resort-detail-image' src={resort.img_url} alt={resort.name} />	
+			</div>
+			{	user ? 
+				<Link className='add-review-button' to={`/resorts/${id}/create-review`}> 
+					Add Review
+				</Link>
+				:
+				<Link to='/sign-in'>Sign In</Link>
+			}
 			<div className='review'>
 				{ resort.reviews ?
 					resort.reviews.map((review, key) => (
@@ -92,14 +103,6 @@ const ResortDetail = ({ user }) => {
 					<EditReview user={user} resort={resort} handleUpdateReview={handleUpdateReview} handleDeleteReview={handleDeleteReview} resortId={id}/>
 				</Route>
 			</Switch>
-			{	user ? 
-				<Link className='add-review-button' to={`/resorts/${id}/create-review`}> 
-					Add Review
-				</Link>
-				:
-				<Link to='/sign-in'>Sign In</Link>
-			}
-			
 		</div>
 	)
 }
