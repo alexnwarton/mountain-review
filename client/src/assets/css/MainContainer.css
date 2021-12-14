@@ -1,0 +1,36 @@
+.search-button {
+	text-decoration: none;
+	color: white;
+	margin-left: 3%;
+	font-size: 130%;
+}
+.search-button:hover {
+	text-decoration: none;
+	color: lightgray;
+	margin-left: 3%;
+}
+
+.view-all {
+	text-decoration: none;
+	font-size: 130%;
+	color: white;
+	display: flex;
+	justify-content: center;
+}
+
+.view-all:hover {
+	text-decoration: none;
+	color: lightgray;
+	display: flex;
+	justify-content: center;
+}
+
+.search-bar {
+	opacity: 50%;
+	background: lightgray;
+	width: 50%;
+	height: 3rem;
+	margin-bottom: 2%;
+	border-color: transparent;
+	font-size: 150%;
+}

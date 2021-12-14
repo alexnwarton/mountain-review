@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-//import { getOneResortReview } from '../services/reviews';
 
 const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview }) => {
 	const [review, setReview] = useState({

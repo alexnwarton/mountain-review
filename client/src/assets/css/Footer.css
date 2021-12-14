@@ -1,0 +1,6 @@
+footer {
+	display: grid;
+	min-height: 40vh;
+	align-items: end;
+	color: white;
+}

@@ -7,8 +7,8 @@ const Nav = ({ user, handleSignOut }) => {
 			<Link className='logo' to='/'>MR</Link>
 			{ user ? 
 				<div className='user-greeting'>
-					<p>Welcome, {user.username}</p>
-					<button onClick={handleSignOut}>Sign Out</button>
+					<p className='greeting-tag'>Welcome, {user.username}</p>
+					<button className='sign-out' onClick={handleSignOut}>Sign Out</button>
 				</div>
 				:
 				<Link className='sign-in' to='/sign-in'>Sign In</Link>

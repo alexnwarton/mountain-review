@@ -4,6 +4,7 @@
 .main-nav {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	background-color: #232F5B;;
 }
 
 .logo {
@@ -12,6 +13,18 @@
 	font-family: 'Reenie Beanie';
 	font-size: 72px;
 	justify-self: start;
+}
+
+.logo:hover {
+	color: lightgray;
+	text-decoration: none;
+	font-family: 'Reenie Beanie';
+	font-size: 72px;
+	justify-self: start;
+}
+
+.greeting-tag {
+	margin: 0;
 }
 
 .user-greeting {
@@ -24,8 +37,22 @@
 }
 
 .sign-in {
-	color: black;
+	color: white;
 	text-decoration: none;
 	font-size: 36px;
 	justify-self: end;
+}
+
+.sign-in:hover {
+	color: lightgray;
+	text-decoration: none;
+	font-size: 36px;
+	justify-self: end;
+}
+
+.sign-out {
+	background: transparent;
+	border-style: solid;
+	border-color: #00AA66;
+	color: white;
 }

@@ -6,6 +6,7 @@ import Resorts from '../screens/Resorts';
 import ResortDetail from '../screens/ResortDetail';
 import SearchResults from '../screens/SearchResults';
 import HomePage from '../screens/HomePage';
+import '../assets/css/MainContainer.css';
 
 const MainContainer = ({ user }) => {
 	const [resorts, setResorts] = useState([]);
@@ -48,14 +49,17 @@ const MainContainer = ({ user }) => {
 		<div className='main-container'>
 			<Switch>
 				<Route path='/' exact>
-          			<HomePage />
+          			{/*<HomePage />*/}
           			<input 
+          				className='search-bar'
 						type='text'
+						placeholder='search'
 						name='search'
 						value={query}
 						onChange={(ev) => searchResorts(ev.target.value)}
 					/>
-					<Link to='/search-results'>Search</Link>
+					<Link className='search-button' to='/search-results'>Search</Link>
+					<Link className='view-all' to='/resorts'>View all resorts</Link>
           		</Route>
 
 				<Route path='/search-results'>
