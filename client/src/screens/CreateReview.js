@@ -1,9 +1,11 @@
+import Rating from '@mui/material/Rating';
 import { useState } from 'react';
 
 const CreateReview = ({ user, resort, handleCreateReview }) => {
+	const [starRating, setRating] = useState(4)
 	const [newReview, setNewReview] = useState({
 		title: '',
-		rating: '',
+		rating: starRating,
 		body: '',
 		user_id: user.id,
 		resort_id: resort
@@ -34,11 +36,12 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 			/>
 			<br />
 			<label>rating:</label>
-			<input 
-				type='textarea'
-				name='rating'
+			<Rating 
+				name='average-rating'
 				value={rating}
-				onChange={handleChange}
+				onChange={(ev, newValue) => {
+					setRating(newValue)
+				}}
 			/>
 			<br />
 			<label>body:</label>
@@ -49,17 +52,15 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 				onChange={handleChange}
 			/>
 			<input 
-				type='text'
+				type='hidden'
 				name='user_id'
 				value={user.id}
-
 				onChange={handleChange}
 			/>
 			<input 
-				type='text'
+				type='hidden'
 				name='resort_id'
 				value={resort}
-
 				onChange={handleChange}
 			/>
 			<button>Submit</button>

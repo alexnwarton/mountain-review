@@ -73,12 +73,11 @@ const ResortDetail = ({ user }) => {
 						        value={review.rating}
 						        readOnly
 							/>
-							<h2>{review.rating}</h2>
 							<p>{review.body}</p>
 							{ user && review.user_id === user.id ?
 								<Link className='edit-review-button' to={`/resorts/${id}/edit-review/${review.id}`}> 
 									Edit Review
-								</Link> : ""
+								</Link> : ''
 							}
 						</div>
 					)) :

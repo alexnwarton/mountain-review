@@ -1,5 +1,5 @@
 import Fuse from 'fuse.js';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Link, Switch, Route, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {  getResorts } from '../services/resorts';
 import Resorts from '../screens/Resorts';
@@ -12,6 +12,7 @@ const MainContainer = ({ user }) => {
 	const [resorts, setResorts] = useState([]);
 	const [query, setQuery] = useState('');
 	const foundResorts = [];
+	const history = useHistory();
 
 	useEffect(() => {
 		const fetchResorts = async () => {
@@ -50,6 +51,11 @@ const MainContainer = ({ user }) => {
 			<Switch>
 				<Route path='/' exact>
           			<HomePage />
+          			<form onSubmit={(ev) => {
+          				ev.preventDefault()
+          				history.push('/search-results')
+          				}
+          			}>
           			<input 
           				className='search-bar'
 						type='text'
@@ -59,6 +65,7 @@ const MainContainer = ({ user }) => {
 						onChange={(ev) => searchResorts(ev.target.value)}
 					/>
 					<Link className='search-button' to='/search-results'>Search</Link>
+					</form>
 					<Link className='view-all' to='/resorts'>View all resorts</Link>
           		</Route>
 

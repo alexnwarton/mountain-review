@@ -1,12 +1,14 @@
-import ResortCard from '../components/ResortCard';
+
+import SearchCard from '../components/SearchCard';
+import '../assets/css/SearchResults.css';
 
 const SearchResults = ({ resorts, query, setQuery }) => {
 	
 	return (
 		<div>
-			<h2 className='all-resorts'>Search Results</h2>
+			<h2 className='search-resorts'>Search Results</h2>
 			{resorts.map((resort, key) => (
-				<ResortCard resort={resort} id={key}/>
+				<SearchCard resort={resort} id={key}/>
 			))}
 		</div>
 	)

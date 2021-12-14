@@ -1,0 +1,47 @@
+.search-image {
+	display: flex;
+	width: 30%;
+	height: 75%;
+	padding: 3%;
+}
+
+.search-card {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+.search-link {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	text-decoration: none;
+	min-height: 15rem;
+	margin: 0 auto;
+}
+
+.search-name {
+	display: flex;
+	flex-direction: row;
+	color: darkgray;
+}
+
+.search-resorts {
+	color: white;
+	font-family: 'Reenie Beanie';
+	font-size: 96px;
+	margin: 3%;
+}
+
+.card-data {
+	display: flex;
+	flex-direction: column;
+}
+
+.search-description {
+	text-align: left;
+	text-decoration: none;
+	color: darkgray;
+	font-weight: bold;
+	margin-right: 5%;
+}

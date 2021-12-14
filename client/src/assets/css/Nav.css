@@ -51,8 +51,19 @@
 }
 
 .sign-out {
+	font-family: 'Reenie Beanie';
 	background: transparent;
 	border-style: solid;
-	border-color: #00AA66;
+	border-color: transparent;
 	color: white;
+	font-size: 30px;
+}
+
+.sign-out:hover {
+	font-family: 'Reenie Beanie';
+	background: transparent;
+	border-style: solid;
+	border-color: transparent;
+	color: lightgray;
+	font-size: 30px;
 }
