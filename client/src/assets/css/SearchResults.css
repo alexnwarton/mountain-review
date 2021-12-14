@@ -51,7 +51,17 @@
 	font-size: 35px;
 }
 
+.no-results-image {
+	border-radius: 50%;
+	display: inline-flex;
+}
+
 .home-page-link {
 	color: white;
+	text-decoration: none;
+}
+
+.home-page-link:hover {
+	color: #8D8D8D;
 	text-decoration: none;
 }

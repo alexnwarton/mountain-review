@@ -72,7 +72,7 @@ const ResortDetail = ({ user }) => {
 					Add Review
 				</Link>
 				:
-				<Link to='/sign-in'>Sign In</Link>
+				<Link className='add-review-button' to='/sign-in'>Sign in to add review</Link>
 			}
 			<div className='review'>
 				{ resort.reviews ?
