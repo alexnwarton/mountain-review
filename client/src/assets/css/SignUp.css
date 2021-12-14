@@ -1,5 +1,6 @@
 .App {
-	background: #232F5B;;
+	background: #232F5B;
+	background-size: cover;
 }
 
 .sign-up-form {
