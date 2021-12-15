@@ -75,7 +75,11 @@ function App() {
             />
           </Route>
           <Route path='/'>
-            <MainContainer user={user} routePath={routePath} setPath={setPath}/>
+            <MainContainer 
+              user={user} 
+              routePath={routePath} 
+              setPath={setPath}
+            />
           </Route>
         </Switch>
       </Layout>

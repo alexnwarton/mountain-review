@@ -190,8 +190,31 @@ src
 
 ## Code Showcase
 
+### Home Page Conditional Render
+```jsx
+ <div className={ routePath === '/' ? 'snow' : 'App'}>
+```
+
+### Sign-In/Sign-Up Error Handling
+```javascript
+ const handleSignIn = async (formData) => {
+    setIsError(false)
+    try {
+      const userInfo = await loginUser(formData);
+      setUser(userInfo);
+      history.push('/');
+    } catch (error) {
+      console.error(error);
+      setIsError(true);
+    }
+  }
+```
+```jsx
+ { isError ? <p className='error-message'>Invalid credentials. Please try again.</p> : ''}
+```
 
 
 ## Code Issues & Resolutions
 
-
+- Issue: Adding an animated background to the home page. React does not recognize certain CSS pseudo-classes.
+      - Solution: Install an npm package for the specific animation (falling snow)
