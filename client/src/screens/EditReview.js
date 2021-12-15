@@ -56,6 +56,7 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview, star
 					value={rating}
 					onChange={(ev, newValue) => {
 						setReview({ rating: newValue })
+						setValue(starRating)
 					}}
 				/>
 				<label className='create-label'>body</label>
