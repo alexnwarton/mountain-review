@@ -32,6 +32,9 @@
 	color:  #8D8D8D;
 }
 
+span {
+	margin-bottom: 2%;
+}
 
 textarea {
 	opacity: 0.5;
