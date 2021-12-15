@@ -19,7 +19,7 @@
 
 ## Overview
 
-_**Mountain Review** is a full-stack web application that allows winter sports enthusiasts to share their experience at a mountain resort with others. Built using Ruby on Rails and React, users can create reviews for a mountain resort_
+_**Mountain Review** is a full-stack web application that allows winter sports enthusiasts to share their experience at a mountain resort with others. Built using Ruby on Rails and React, users can create, update, and delete reviews for a mountain resort._
 
 
 <br>
@@ -51,7 +51,6 @@ _**Mountain Review** is a full-stack web application that allows winter sports e
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
@@ -69,47 +68,49 @@ _**Mountain Review** is a full-stack web application that allows winter sports e
 
 #### Wireframes
 
-- Home Page
+Home Page
 
 ![home-page](assets/home-page.png)
 
-- Show Resorts
+Show Resorts
 
 ![resorts-page](assets/resorts-page.png)
 
-- Resort Detail
+Resort Detail
 
 ![resort-detail-page](assets/resort-detail-page.png)
 
-- Sign In
+Sign In
 
 ![sign-in-page](assets/sign-in-page.png)
 
-- Sign Up
+Sign Up
 
 ![sign-up-page](assets/sign-up-page.png)
 
-- Create Review
+Create Review
 
 ![create-review-page](assets/create-review-page.png)
 
-- Detail with Edit
+Detail with Edit
 
 ![detail-with-edit-page](assets/detail-with-edit-page.png)
 
-- Edit Review
+Edit Review
 
 ![edit-review-page](assets/edit-review-page.png)
 
-- Search Results
+Search Results
 
 ![search-results-page](assets/search-results-page.png)
 
-
+<br>
 
 #### Component Hierarchy
 
 ![Component Hierarchy](assets/component-hierarchy.png)
+
+<br>
 
 #### Component Architecture
 
@@ -148,6 +149,7 @@ src
 	  |__ reviews.js
 
 ```
+<br>
 
 #### Time Estimates
 
@@ -216,5 +218,5 @@ src
 
 ## Code Issues & Resolutions
 
-- Issue: Adding an animated background to the home page. React does not recognize certain CSS pseudo-classes.
+- Issue: Adding an animated background to the home page. React does not recognize certain CSS pseudo-classes
       - Solution: Install an npm package for the specific animation (falling snow)
