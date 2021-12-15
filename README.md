@@ -59,8 +59,9 @@ _**Mountain Review** is a full-stack web application that allows winter sports e
 |   React Router   | _Used for routing through React components_|
 |    MaterialUI    | _Package for custom styling using React_ 	|
 |   Ruby on Rails  | _Back-end framework for creating JSON API_ |
-|     Axios        | _Used for making front-end API calls_ 		|
+|     axios        | _Used for making front-end API calls_ 		|
 |     bcrypt       | _Used for password hashing_ 				|
+|     react snowfall      | _used for homepage animation_                        |
 
 <br>
 
@@ -153,19 +154,19 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Create tables/associations    	 |    H     |     1.5 hrs      |     TBD     |     TBD     |
-| Create back-end routes/controllers |    H     |     3 hrs      |     TBD    |     TBD     |
-| Test back-end CRUD actions 		 |    H     |     2 hr     |     TBD    |     TBD     |
-| Deploy back-end   				 |    H     |     1 hr      |     TBD   |     TBD     |
-| Create React app 					 |    H     |     1 hr      |     TBD     |     TBD     |
-| Add Layout, Nav, Footer    		 |    L     |     3 hrs      |     TBD    |     TBD     |
-| Add SignIn, SignUp, HomePage 	 	 |    H     |     3 hrs      |     TBD    |     TBD     |
-| Add Resorts, Card, ResortDetail    |    H     |     3 hrs      |     TBD    |     TBD     |
-| Add SearchResults  				 |    L     |     3 hrs      |     TBD    |     TBD     |
-| Add Review CRUD actions  			 |    H     |     2.5 hrs      |     TBD    |     TBD     |
-| Deploy front-end 					 |    H     |     1 hr      |     TBD    |     TBD     |
-| Styling and media queries 		 |    H     |     10 hrs      |    TBD     |     TBD     |
-| TOTAL               				 |          |     34 hrs     |     TBD     |     TBD     |
+| Create tables/associations    	 |    H     |     1.5 hrs      |     TBD     |     1.5 hrs     |
+| Create back-end routes/controllers |    H     |     3 hrs      |     6 hrs    |     6 hrs     |
+| Test back-end CRUD actions 		 |    H     |     2 hr     |     5 hrs    |     5 hrs     |
+| Deploy back-end   				 |    H     |     1 hr      |     0.5 hrs   |     0.5 hrs     |
+| Create React app 					 |    H     |     1 hr      |    1 hr     |    1 hr     |
+| Add Layout, Nav, Footer    		 |    L     |     3 hrs      |     2 hrs   |     2 hrs     |
+| Add SignIn, SignUp, HomePage 	 	 |    H     |     3 hrs      |     6 hrs    |     6 hrs     |
+| Add Resorts, Card, ResortDetail    |    H     |     3 hrs      |     3 hrs    |     3 hrs     |
+| Add SearchResults  				 |    L     |     3 hrs      |     5 hrs    |     5 hrs     |
+| Add Review CRUD actions  			 |    H     |     2.5 hrs      |     3 hrs    |     3 hrs     |
+| Deploy front-end 					 |    H     |     1 hr      |     0.5 hrs    |     0.5 hrs     |
+| Styling and media queries 		 |    H     |     10 hrs      |    20 hrs     |     16 hrs     |
+| TOTAL               				 |          |     34 hrs     |     49.5     |     49.5    |
 
 <br>
 
