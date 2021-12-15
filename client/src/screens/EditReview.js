@@ -6,7 +6,7 @@ import '../assets/css/EditReview.css';
 const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview, starRating, setValue }) => {
 	const [review, setReview] = useState({
 		title: '',
-		rating: starRating,
+		rating: parseInt(starRating),
 		body: '',
 		user_id: user.id,
 		resort_id: resort.id
@@ -50,7 +50,6 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview, star
 					value={title}
 					onChange={handleChange}
 				/>
-				<br />
 				<label className='create-label'>rating</label>
 				<Rating 
 					name='average-rating'
@@ -59,7 +58,6 @@ const EditReview = ({ user, resort, handleUpdateReview, handleDeleteReview, star
 						setReview({ rating: newValue })
 					}}
 				/>
-				<br />
 				<label className='create-label'>body</label>
 				<textarea 
 					type='textarea'

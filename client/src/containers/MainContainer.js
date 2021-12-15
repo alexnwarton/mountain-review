@@ -22,11 +22,9 @@ const MainContainer = ({ user, routePath, setPath }) => {
 		fetchResorts();
 	}, [])
 
-
 	const searchResorts = (ev) => {
 		setQuery(ev)
 	}
-
 	
 	const fuse = new Fuse(resorts, {
 		keys: [
@@ -69,13 +67,28 @@ const MainContainer = ({ user, routePath, setPath }) => {
 					<Link className='view-all' to='/resorts'>View all resorts</Link>
           		</Route>
 				<Route path='/search-results'>
-					<SearchResults resorts={foundResorts} query={query} setQuery={setQuery} routePath={routePath} setPath={setPath}/>
+					<SearchResults 
+						resorts={foundResorts} 
+						query={query} 
+						setQuery={setQuery} 
+						routePath={routePath} 
+						setPath={setPath}
+					/>
 				</Route>
 				<Route path='/resorts' exact>
-					<Resorts resorts={resorts} routePath={routePath} setPath={setPath}/>
+					<Resorts 
+						resorts={resorts} 
+						routePath={routePath} 
+						setPath={setPath}
+					/>
 				</Route>
 				<Route path='/resorts/:id'>
-					<ResortDetail resorts={resorts} user={user} routePath={routePath} setPath={setPath}/>
+					<ResortDetail 
+						resorts={resorts} 
+						user={user} 
+						routePath={routePath} 
+						setPath={setPath}
+					/>
 				</Route>
 			</Switch>
 		</div>

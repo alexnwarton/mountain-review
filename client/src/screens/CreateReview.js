@@ -35,7 +35,6 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 				value={title}
 				onChange={handleChange}
 			/>
-			<br />
 			<label className='create-label'>rating</label>
 			<Rating 
 				name='average-rating'
@@ -46,7 +45,6 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 					 rating: newValue }))
 				}}
 			/>
-			<br />
 			<label className='create-label'>body</label>
 			<textarea 
 				type='textarea'

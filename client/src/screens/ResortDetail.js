@@ -23,8 +23,6 @@ const ResortDetail = ({ user, routePath, setPath }) => {
 		fetchResort();
 	}, [id, setPath])
 
-	// right now this redirects to main resorts page.
-	// try to have it redirect to the resort detail page while still loading all the info.
 	const handleCreateReview = async (resortId, formData) => {
 		const newReview = await createReview(resortId, formData);
 		setResort((prevState) => [prevState, newReview]);
@@ -97,10 +95,24 @@ const ResortDetail = ({ user, routePath, setPath }) => {
 			</div>
 			<Switch>
 				<Route path={`/resorts/${id}/create-review`}>
-					<CreateReview user={user} handleCreateReview={handleCreateReview} resort={id} rating={value} setValue={setValue}/>
+					<CreateReview 
+						user={user} 
+						handleCreateReview={handleCreateReview} 
+						resort={id} 
+						rating={value} 
+						setValue={setValue}
+					/>
 				</Route>
 				<Route path={`/resorts/${id}/edit-review/:id`}>
-					<EditReview user={user} resort={resort} handleUpdateReview={handleUpdateReview} handleDeleteReview={handleDeleteReview} resortId={id} starRating={value} setValue={setValue}/>
+					<EditReview 
+						user={user} 
+						resort={resort} 
+						handleUpdateReview={handleUpdateReview} 
+						handleDeleteReview={handleDeleteReview} 
+						resortId={id} 
+						starRating={value} 
+						setValue={setValue}
+					/>
 				</Route>
 			</Switch>
 		</div>

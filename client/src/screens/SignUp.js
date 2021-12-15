@@ -62,7 +62,12 @@ const SignUp = ({ handleSignUp, routePath, setPath, isError, setIsError }) => {
 					onChange={handleChange}
 				/>
 				<input className='sign-up-button' type='submit' value='Sign Up'/>
-				<p className='sign-in-blurb'>Already have an account? <Link className='sign-in-link' to='/sign-in' onClick={() => setIsError(false)}>Sign In</Link></p>
+				<p className='sign-in-blurb'>
+					Already have an account? 
+					<Link className='sign-in-link' to='/sign-in' onClick={() => setIsError(false)}>
+						Sign In
+					</Link>
+				</p>
 			</form>
 			{ isError ? <p className='error-message'>Invalid credentials. Please try again.</p> : ''}
 		</Box>
