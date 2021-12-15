@@ -1,10 +1,14 @@
-
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import SearchCard from '../components/SearchCard';
 import '../assets/css/SearchResults.css';
 
 const SearchResults = ({ resorts, query, setQuery, routePath, setPath }) => {
-	setPath('/search-results')
+	
+	useEffect(() => {
+		setPath('/search-results')
+	}, [setPath])
+
 	return (
 		<div>
 

@@ -1,8 +1,11 @@
 import Snowfall from 'react-snowfall';
+import { useEffect } from 'react';
 import '../assets/css/HomePage.css';
 
 const HomePage = ({ routePath, setPath }) => {
-	setPath('/')
+	useEffect(() => {
+		setPath('/')
+	}, [setPath])
 
 	return (
 		<div className='home-page'>

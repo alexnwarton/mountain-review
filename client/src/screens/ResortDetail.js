@@ -13,16 +13,15 @@ const ResortDetail = ({ user, routePath, setPath }) => {
 	const { id } = useParams();
 	const history = useHistory();
 
-	setPath('/resorts/:id')
-
 	useEffect(() => {
 		const fetchResort = async () => {
 			const selectResort = await getOneResort(id);
 			setResort(selectResort);
 			averageRating(selectResort)
 		}	
+		setPath('/resorts/:id')
 		fetchResort();
-	}, [id])
+	}, [id, setPath])
 
 	// right now this redirects to main resorts page.
 	// try to have it redirect to the resort detail page while still loading all the info.

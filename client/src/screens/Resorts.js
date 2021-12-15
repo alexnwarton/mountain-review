@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import ResortCard from '../components/ResortCard';
 import '../assets/css/Resorts.css';
 
 const Resorts = ({ resorts, routePath, setPath }) => {
-	setPath('/resorts')
+	
+	useEffect(() => {
+		setPath('/resorts')
+	}, [setPath])
+
 	return (
 		<div className='all-resorts-info'>
 			<h2 className='all-resorts'>All Resorts</h2>

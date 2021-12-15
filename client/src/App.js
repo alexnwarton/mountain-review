@@ -9,6 +9,7 @@ import './App.css';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [isError, setIsError] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -20,15 +21,27 @@ function App() {
   }, [])
 
   const handleSignIn = async (formData) => {
-    const userInfo = await loginUser(formData);
-    setUser(userInfo);
-    history.push('/');
+    setIsError(false)
+    try {
+      const userInfo = await loginUser(formData);
+      setUser(userInfo);
+      history.push('/');
+    } catch (error) {
+      console.error(error);
+      setIsError(true);
+    }
   }
 
   const handleSignUp = async (formData) => {
-    const userInfo = await registerUser(formData);
-    setUser(userInfo);
-    history.push('/');
+    setIsError(false)
+    try {
+      const userInfo = await registerUser(formData);
+      setUser(userInfo);
+      history.push('/');
+    } catch (error) {
+      console.error(error);
+      setIsError(true);
+    }
   }
 
   const handleSignOut = async () => {
@@ -45,10 +58,10 @@ function App() {
       <Layout user={user} handleSignOut={handleSignOut}>
         <Switch> 
           <Route path='/sign-in' exact>
-            <SignIn handleSignIn={handleSignIn} routePath={routePath} setPath={setPath}/>
+            <SignIn handleSignIn={handleSignIn} routePath={routePath} setPath={setPath} isError={isError} setIsError={setIsError}/>
           </Route>
           <Route path='/sign-up'>
-            <SignUp handleSignUp={handleSignUp} routePath={routePath} setPath={setPath}/>
+            <SignUp handleSignUp={handleSignUp} routePath={routePath} setPath={setPath} isError={isError} setIsError={setIsError}/>
           </Route>
           <Route path='/'>
             <MainContainer user={user} routePath={routePath} setPath={setPath}/>

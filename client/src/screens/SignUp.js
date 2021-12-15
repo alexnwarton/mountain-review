@@ -1,16 +1,20 @@
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../assets/css/SignUp.css';
 
-const SignUp = ({ handleSignUp, routePath, setPath }) => {
+const SignUp = ({ handleSignUp, routePath, setPath, isError, setIsError }) => {
 	const [userInfo, setUserInfo] = useState({
 		username: '',
 		email: '',
 		password: '',
 		is_admin: false
 	})
-	setPath('/sign-up');
+
+	useEffect(() => {
+		setPath('/sign-up');
+	}, [setPath])
+
 	const { username, email, password} = userInfo;
 
 	const handleChange = (ev) => {
@@ -58,8 +62,9 @@ const SignUp = ({ handleSignUp, routePath, setPath }) => {
 					onChange={handleChange}
 				/>
 				<input className='sign-up-button' type='submit' value='Sign Up'/>
-				<p className='sign-in-blurb'>Already have an account? <Link className='sign-in-link' to='/sign-in'>Sign In</Link></p>
+				<p className='sign-in-blurb'>Already have an account? <Link className='sign-in-link' to='/sign-in' onClick={() => setIsError(false)}>Sign In</Link></p>
 			</form>
+			{ isError ? <p className='error-message'>Invalid credentials. Please try again.</p> : ''}
 		</Box>
 	)
 }

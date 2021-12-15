@@ -43,6 +43,11 @@ input {
 	color: darkgray;
 }
 
+.error-message {
+	color: red;
+	font-weight: bold;
+}
+
 
 /*
 
