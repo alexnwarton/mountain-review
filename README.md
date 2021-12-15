@@ -219,4 +219,4 @@ src
 ## Code Issues & Resolutions
 
 - Issue: Adding an animated background to the home page. React does not recognize certain CSS pseudo-classes
-      - Solution: Install an npm package for the specific animation (falling snow)
+  - Solution: Install an npm package for the specific animation (falling snow)
