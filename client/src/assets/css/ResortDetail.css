@@ -95,3 +95,125 @@ h5 {
 	justify-content: center;
 	font-weight: normal;
 }
+
+
+
+
+/*
+
+	Media query
+	for 
+	SMALL
+	screens
+	
+	(250-750px)
+
+
+*/
+
+@media (min-width:  250px) and (max-width:  750px) {
+	
+	.resort-info {
+		display: flex;
+		flex-direction: column;
+		padding: 5%;
+	}
+
+	.add-review-button {
+		width: 90%;
+		margin: 3%;
+		padding: 1%;
+	}
+
+	.add-review-button:hover {
+		width: 90%;
+		margin: 3%;
+		padding: 1%;
+	}
+
+	.resort-detail-name {
+		margin: 1%;
+	}
+
+	.resort-detail-location {
+		margin: 1%;
+	}
+
+	.resort-detail-image {
+		width: 100%;
+	}
+
+	.review {
+		padding: 5%;
+	}
+
+	.edit-review-button {
+		width: 90%;
+		padding: 1%;
+
+	}
+
+	.edit-review-button:hover {
+		width: 90%;
+		padding: 1%;
+
+	}
+
+}
+
+
+
+/*
+
+	Media query
+	for 
+	SMALL
+	screens
+	
+	(250-750px)
+
+
+*/
+
+@media (min-width:  750px) and (max-width:  1100px) {
+
+	.resort-detail-image {
+		width: 50%;
+		height: 50%;
+		margin: auto 0;
+	}
+
+	.resort-detail-name {
+		margin: 1%;
+	}
+
+	.resort-detail-location {
+		margin: 1%;
+	}
+
+	.add-review-button {
+		width: 25%;
+		margin: 3%;
+		padding: 1%;
+	}
+
+	.add-review-button:hover {
+		width: 25%;
+		margin: 3%;
+		padding: 1%;
+	}
+
+	.edit-review-button {
+		width: 25%;
+		padding: 1%;
+
+	}
+
+	.edit-review-button:hover {
+		width: 25%;
+		padding: 1%;
+
+	}
+
+
+}
