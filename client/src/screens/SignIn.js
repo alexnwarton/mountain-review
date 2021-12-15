@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import '../assets/css/SignIn.css';
 
-const SignIn = ({ handleSignIn }) => {
+const SignIn = ({ handleSignIn, routePath, setPath }) => {
 	const [userInfo, setUserInfo] = useState({
 		username: '',
 		password: ''
 	})
+
+	setPath('/sign-in');
 
 	const { username, password} = userInfo;
 

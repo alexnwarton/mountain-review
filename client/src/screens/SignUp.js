@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import '../assets/css/SignUp.css';
 
-const SignUp = ({ handleSignUp }) => {
+const SignUp = ({ handleSignUp, routePath, setPath }) => {
 	const [userInfo, setUserInfo] = useState({
 		username: '',
 		email: '',
 		password: '',
 		is_admin: false
 	})
-
+	setPath('/sign-up');
 	const { username, email, password} = userInfo;
 
 	const handleChange = (ev) => {

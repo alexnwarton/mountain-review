@@ -8,7 +8,7 @@ import SearchResults from '../screens/SearchResults';
 import HomePage from '../screens/HomePage';
 import '../assets/css/MainContainer.css';
 
-const MainContainer = ({ user }) => {
+const MainContainer = ({ user, routePath, setPath }) => {
 	const [resorts, setResorts] = useState([]);
 	const [query, setQuery] = useState('');
 	const foundResorts = [];
@@ -50,7 +50,7 @@ const MainContainer = ({ user }) => {
 		<div className='main-container'>
 			<Switch>
 				<Route path='/' exact>
-          			<HomePage />
+          			<HomePage routePath={routePath} setPath={setPath}/>
           			<form onSubmit={(ev) => {
           				ev.preventDefault()
           				history.push('/search-results')
@@ -68,15 +68,14 @@ const MainContainer = ({ user }) => {
 					</form>
 					<Link className='view-all' to='/resorts'>View all resorts</Link>
           		</Route>
-
 				<Route path='/search-results'>
-					<SearchResults resorts={foundResorts} query={query} setQuery={setQuery}/>
+					<SearchResults resorts={foundResorts} query={query} setQuery={setQuery} routePath={routePath} setPath={setPath}/>
 				</Route>
 				<Route path='/resorts' exact>
-					<Resorts resorts={resorts} />
+					<Resorts resorts={resorts} routePath={routePath} setPath={setPath}/>
 				</Route>
 				<Route path='/resorts/:id'>
-					<ResortDetail resorts={resorts} user={user} />
+					<ResortDetail resorts={resorts} user={user} routePath={routePath} setPath={setPath}/>
 				</Route>
 			</Switch>
 		</div>

@@ -1,7 +1,8 @@
 import Snowfall from 'react-snowfall';
 import '../assets/css/HomePage.css';
 
-const HomePage = () => {
+const HomePage = ({ routePath, setPath }) => {
+	setPath('/')
 
 	return (
 		<div className='home-page'>

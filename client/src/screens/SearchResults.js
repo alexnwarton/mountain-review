@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import SearchCard from '../components/SearchCard';
 import '../assets/css/SearchResults.css';
 
-const SearchResults = ({ resorts, query, setQuery }) => {
-	
+const SearchResults = ({ resorts, query, setQuery, routePath, setPath }) => {
+	setPath('/search-results')
 	return (
 		<div>
 

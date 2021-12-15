@@ -1,7 +1,8 @@
 import ResortCard from '../components/ResortCard';
 import '../assets/css/Resorts.css';
 
-const Resorts = ({ resorts }) => {
+const Resorts = ({ resorts, routePath, setPath }) => {
+	setPath('/resorts')
 	return (
 		<div className='all-resorts-info'>
 			<h2 className='all-resorts'>All Resorts</h2>

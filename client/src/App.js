@@ -5,10 +5,6 @@ import Layout from './components/Layout';
 import MainContainer from './containers/MainContainer';
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
-
-// import HomePage from './screens/HomePage';
-
-
 import './App.css';
 
 function App() {
@@ -42,22 +38,22 @@ function App() {
     history.push('/');
   }
 
+  const [routePath, setPath] = useState('')
 
   return (
-    <div className='App'>
-    <Layout user={user} handleSignOut={handleSignOut}>
-      <Switch> 
-        <Route path='/sign-in' exact>
-          <SignIn handleSignIn={handleSignIn}/>
-        </Route>
-        <Route path='/sign-up'>
-          <SignUp handleSignUp={handleSignUp}/>
-        </Route>
-        <Route path='/'>
-            <MainContainer user={user}/>
-        </Route>
-      </Switch>
-    
+    <div className={ routePath === '/' ? 'snow' : 'App'}>
+      <Layout user={user} handleSignOut={handleSignOut}>
+        <Switch> 
+          <Route path='/sign-in' exact>
+            <SignIn handleSignIn={handleSignIn} routePath={routePath} setPath={setPath}/>
+          </Route>
+          <Route path='/sign-up'>
+            <SignUp handleSignUp={handleSignUp} routePath={routePath} setPath={setPath}/>
+          </Route>
+          <Route path='/'>
+            <MainContainer user={user} routePath={routePath} setPath={setPath}/>
+          </Route>
+        </Switch>
       </Layout>
     </div>
   );

@@ -7,11 +7,13 @@ import CreateReview from '../screens/CreateReview';
 import EditReview from '../screens/EditReview';
 import '../assets/css/ResortDetail.css';
 
-const ResortDetail = ({ user }) => {
+const ResortDetail = ({ user, routePath, setPath }) => {
 	const [resort, setResort] = useState([]);
 	const [value, setValue] = useState(0);
 	const { id } = useParams();
 	const history = useHistory();
+
+	setPath('/resorts/:id')
 
 	useEffect(() => {
 		const fetchResort = async () => {

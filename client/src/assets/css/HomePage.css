@@ -13,13 +13,3 @@ body {
 .main-nav {
   background: transparent;
 }
-
-@keyframes MOVE-BG {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(70%);
-  }
-}
-
