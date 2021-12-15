@@ -43,3 +43,26 @@ input {
 .sign-in-link {
 	color: darkgray;
 }
+
+/*
+
+	Media query
+	for 
+	SMALL
+	screens
+	
+	(250-430px)
+
+
+*/
+
+@media (min-width:  250px) and (max-width:  430px) {
+	
+	.sign-up-header {
+		margin-right: 30%;
+	}
+
+	.sign-up-form {
+		margin-right: 30%;
+	}
+}
