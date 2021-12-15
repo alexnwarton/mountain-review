@@ -6,6 +6,9 @@ import MainContainer from './containers/MainContainer';
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
 
+// import HomePage from './screens/HomePage';
+
+
 import './App.css';
 
 function App() {
@@ -51,9 +54,10 @@ function App() {
           <SignUp handleSignUp={handleSignUp}/>
         </Route>
         <Route path='/'>
-          <MainContainer user={user}/>
+            <MainContainer user={user}/>
         </Route>
       </Switch>
+    
       </Layout>
     </div>
   );
