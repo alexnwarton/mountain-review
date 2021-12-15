@@ -161,3 +161,22 @@
 		visibility: hidden;
 	}
 }
+
+/*
+
+	Media query
+	for 
+	LARGE
+	screens
+	
+	(1000px+)
+
+
+*/
+
+@media (min-width:  1000px) {
+
+	.no-results-image {
+		width: 25%;
+	}
+}
