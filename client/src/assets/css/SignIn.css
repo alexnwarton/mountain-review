@@ -70,4 +70,8 @@ input {
 	.sign-in-form {
 		margin-right: 30%;
 	}
+
+	.error-message {
+		margin-right: 30%;
+	}
 }
