@@ -11,7 +11,8 @@ const SearchCard = ({ resort }) => {
 			width:1100,
 			height:300,
 			backgroundColor:'white',
-			margin: 'auto'
+			margin: 'auto',
+			marginBottom: '15%'
 		}}
 		className='search-card'>
 			<Link className='search-link' to={`/resorts/${resort.id}`}>
