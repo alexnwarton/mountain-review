@@ -68,3 +68,135 @@
 	color: #8D8D8D;
 	font-size: 30px;
 }
+
+
+
+
+
+
+
+
+/*
+
+	Media query
+	for 
+	SMALL
+	screens
+	
+	(250-750px)
+
+
+*/
+
+
+@media (min-width:  250px) and (max-width: 750px){
+	
+	.main-nav {
+		padding: 4%;
+	}
+
+	.logo {
+		font-size: 48px;
+	}
+
+	.greeting-tag {
+		font-size: 24px;
+		text-align: right;
+	}
+
+	.sign-out {
+		font-size: 24px;
+		display: flex;
+		margin-left: 50%;
+	}
+
+}
+
+
+
+
+
+
+
+/*
+
+	Media query
+	for 
+	MEDIUM
+	screens
+	
+	(750-1100px)
+
+
+*/
+
+@media (min-width:  750px) {
+	.main-nav {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		background-color: transparent;
+		padding: 1%;
+	}
+
+	.logo {
+		color: white;
+		text-decoration: none;
+		font-family: 'Reenie Beanie';
+		font-size: 72px;
+		justify-self: start;
+	}
+
+	.logo:hover {
+		color: lightgray;
+		text-decoration: none;
+		font-family: 'Reenie Beanie';
+		font-size: 72px;
+		justify-self: start;
+	}
+
+	.greeting-tag {
+		margin: 0;
+		font-size: 48px;
+	}
+
+	.user-greeting {
+		color: white;
+		text-decoration: none;
+		font-family: 'Reenie Beanie';
+		font-size: 48px;
+		justify-self: end;
+		align-self: center;
+	}
+
+	.sign-in {
+		color: white;
+		text-decoration: none;
+		font-size: 36px;
+		justify-self: end;
+	}
+
+	.sign-in:hover {
+		color: #8D8D8D;
+		text-decoration: none;
+		font-size: 36px;
+		justify-self: end;
+	}
+
+	.sign-out {
+		font-family: 'Reenie Beanie';
+		background: transparent;
+		border-style: solid;
+		border-color: transparent;
+		color: white;
+		font-size: 30px;
+	}
+
+	.sign-out:hover {
+		font-family: 'Reenie Beanie';
+		background: transparent;
+		border-style: solid;
+		border-color: transparent;
+		color: #8D8D8D;
+		font-size: 30px;
+	}
+}
