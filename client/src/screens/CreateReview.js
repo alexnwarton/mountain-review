@@ -38,11 +38,12 @@ const CreateReview = ({ user, resort, handleCreateReview }) => {
 			<label className='create-label'>rating</label>
 			<Rating 
 				name='average-rating'
-				value={starRating}
+				value={parseInt(starRating)}
 				onChange={(ev, newValue) => {
 					setNewReview((prevState) => ({
 						...prevState,
 					 rating: newValue }))
+					setRating(newValue)
 				}}
 			/>
 			<label className='create-label'>body</label>
