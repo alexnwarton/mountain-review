@@ -18,6 +18,7 @@
 	text-decoration: none;
 	min-height: 15rem;
 	margin: 0 auto;
+	padding-bottom: 10%;
 }
 
 .search-name {
@@ -64,4 +65,47 @@
 .home-page-link:hover {
 	color: #8D8D8D;
 	text-decoration: none;
+}
+
+
+/*
+
+	Media query
+	for 
+	SMALL
+	screens
+	
+	(250-750px)
+
+
+*/
+
+@media (min-width:  250px) and (max-width:  750px) {
+	
+	.search-resorts {
+		font-size: 72px;
+	}
+
+	.home-page-link {
+		font-size: 24px;
+	}
+
+	.search-link {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+	}
+
+	/*.search-image {
+		width: 15%;
+		height: 50%;
+
+	}*/
+
+	.search-description {
+		visibility: hidden;
+		width: 100%;
+		height: 20%;
+	}
+	
 }

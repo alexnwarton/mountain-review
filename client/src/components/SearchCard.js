@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
+import '../assets/css/SearchCard.css'
 
 const SearchCard = ({ resort }) => {
 	const value = Math.floor(Math.random() * 5);

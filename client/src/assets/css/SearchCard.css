@@ -1,0 +1,33 @@
+.search-card {
+	margin-bottom: 15%;
+}
+
+.search-image {
+	width: 50%;
+	height: 50%;
+	margin-top: 3%;
+}
+
+/*
+
+	Media query
+	for 
+	SMALL
+	screens
+	
+	(250-750px)
+
+
+*/
+
+@media (min-width:  250px) and (max-width:  750px) {
+	.search-image {
+		width: 15%;
+		display: flex;
+	}	
+
+	.search-card {
+		flex-direction: column;
+	}
+
+}
